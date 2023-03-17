@@ -1,6 +1,6 @@
 from flask import Flask, Response, request
 
-# API REST com Flask e Python com 5 métodos HTTP (GET, POST, PUT, DELETE) e 2 rotas (users e orders)
+# API REST com Flask e Python com 4 métodos HTTP (GET, POST, PUT, DELETE) e 3 rotas (/, /users, /orders)
 
 app = Flask(__name__)
 
