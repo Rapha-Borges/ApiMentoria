@@ -1,6 +1,6 @@
 import requests
 
-# API para consultar astronautas no espaço
+# API para consultar astronautas no espaço 
 
 # URL da API
 url = 'http://api.open-notify.org/astros.json'
