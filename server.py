@@ -1,5 +1,4 @@
 from flask import Flask, Response, request, jsonify
-import random
 
 # API REST com Flask e Python com 4 métodos HTTP (GET, POST, PUT, DELETE) e 3 rotas (/, /users, /orders)
 
@@ -40,10 +39,11 @@ def orders():
     
 @app.route('/healthcheck', methods=['GET'])
 def healthcheck():
-    a = random.randint(1, 100)
-    b = random.randint(1, 100)
+    a = int(request.args.get('a', 0))
+    b = int(request.args.get('b', 0))
     c = a * b
-    return jsonify({'status': 'ok', 'multiplicacao': c})
+    mensagem = f"Valor da multiplicação: {c}. Status da API: Ok"
+    return jsonify({'mensagem': mensagem})
     
 if __name__ == '__main__':  
     app.run()
