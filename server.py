@@ -1,4 +1,5 @@
-from flask import Flask, Response, request
+from flask import Flask, Response, request, jsonify
+import random
 
 # API REST com Flask e Python com 4 métodos HTTP (GET, POST, PUT, DELETE) e 3 rotas (/, /users, /orders)
 
@@ -36,6 +37,13 @@ def orders():
         return Response('Pedido atualizado')
     elif request.method == 'DELETE':
         return Response('Pedido excluído')
+    
+@app.route('/healthcheck', methods=['GET'])
+def healthcheck():
+    a = random.randint(1, 100)
+    b = random.randint(1, 100)
+    c = a * b
+    return jsonify({'status': 'ok', 'multiplicacao': c})
     
 if __name__ == '__main__':  
     app.run()
